@@ -50,11 +50,10 @@ class Splitter:
 
         cables = []
 
-        def cable_name(index):
-            return f"{cable.name}-{str(index).rjust(padding_len, '0')}"
-
         def make_cable(length=longest_len):
-            cables.append(Cable(length, cable_name(len(cables))))
+            index = str(len(cables))
+            name = f"{cable.name}-{index.rjust(padding_len, '0')}"
+            cables.append(Cable(length, name))
 
         # initial cuts
         for _ in range(times + 1):
